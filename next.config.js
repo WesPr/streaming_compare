@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "streamingservice-wesbucket.s3.eu-central-1.amazonaws.com",
+        hostname: "stream-bucket-wes.s3.eu-central-1.amazonaws.com",
       },
     ],
   },
