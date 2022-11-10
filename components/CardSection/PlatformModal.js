@@ -8,7 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { useRouter } from "next/router";
 const styleModal = {
   position: "absolute",
   top: "50%",
@@ -23,6 +23,7 @@ const styleModal = {
 };
 
 export default function PlatformModal({ open, handleClose, item }) {
+  const router = useRouter();
   const plans = item.pricing.split(/, (?=[^,]+:)/).map((s) => s.split(": "));
 
   return (
@@ -65,6 +66,11 @@ export default function PlatformModal({ open, handleClose, item }) {
           className={
             " px-3 tw-button mt-5 ml-16 rounded-lg text-sm font-semibold"
           }
+          onClick={() => {
+            router.push({
+              pathname: item.signUp,
+            });
+          }}
         >
           Sign Up
         </button>
