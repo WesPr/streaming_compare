@@ -11,62 +11,65 @@ import { useRouter } from "next/router";
 
 export default function TableSection() {
   const router = useRouter();
-  const selectedPlatforms = JSON.parse(router.query.selectedPlatforms);
+  let selectedPlatforms = null;
+  let rows = null;
+  if (router.query.selectedPlatforms != null) {
+    selectedPlatforms = JSON.parse(router.query.selectedPlatforms);
+    rows = [
+      createData(
+        "Pricing",
+        selectedPlatforms[0]?.pricing,
+        selectedPlatforms[1]?.pricing,
+        selectedPlatforms[2]?.pricing
+      ),
+      createData(
+        "Media Type",
+        selectedPlatforms[0]?.mediaType,
+        selectedPlatforms[1]?.mediaType,
+        selectedPlatforms[2]?.mediaType
+      ),
+      createData(
+        "Supported Devices",
+        selectedPlatforms[0]?.supportedDevices,
+        selectedPlatforms[1]?.supportedDevices,
+        selectedPlatforms[2]?.supportedDevices
+      ),
+      createData(
+        "Download",
+        selectedPlatforms[0]?.download,
+        selectedPlatforms[1]?.download,
+        selectedPlatforms[2]?.download
+      ),
+      createData(
+        "Quality",
+        selectedPlatforms[0]?.quality,
+        selectedPlatforms[1]?.quality,
+        selectedPlatforms[2]?.quality
+      ),
+      createData(
+        "Custom profiles",
+        selectedPlatforms[0]?.customProfiles,
+        selectedPlatforms[1]?.customProfiles,
+        selectedPlatforms[2]?.customProfiles
+      ),
+      createData(
+        "Kids content",
+        selectedPlatforms[0]?.kidsContent,
+        selectedPlatforms[1]?.kidsContent,
+        selectedPlatforms[2]?.kidsContent
+      ),
+      createData(
+        "Trial",
+        selectedPlatforms[0]?.trial,
+        selectedPlatforms[1]?.trial,
+        selectedPlatforms[2]?.trial
+      ),
+    ];
+  }
 
   function createData(rowTitle, platform1, platform2, platform3) {
     return { rowTitle, platform1, platform2, platform3 };
   }
-
-  const rows = [
-    createData(
-      "Pricing",
-      selectedPlatforms[0].pricing,
-      selectedPlatforms[1].pricing,
-      selectedPlatforms[2]?.pricing
-    ),
-    createData(
-      "Media Type",
-      selectedPlatforms[0].mediaType,
-      selectedPlatforms[1].mediaType,
-      selectedPlatforms[2]?.mediaType
-    ),
-    createData(
-      "Supported Devices",
-      selectedPlatforms[0].supportedDevices,
-      selectedPlatforms[1].supportedDevices,
-      selectedPlatforms[2]?.supportedDevices
-    ),
-    createData(
-      "Download",
-      selectedPlatforms[0].download,
-      selectedPlatforms[1].download,
-      selectedPlatforms[2]?.download
-    ),
-    createData(
-      "Quality",
-      selectedPlatforms[0].quality,
-      selectedPlatforms[1].quality,
-      selectedPlatforms[2]?.quality
-    ),
-    createData(
-      "Custom profiles",
-      selectedPlatforms[0].customProfiles,
-      selectedPlatforms[1].customProfiles,
-      selectedPlatforms[2]?.customProfiles
-    ),
-    createData(
-      "Kids content",
-      selectedPlatforms[0].kidsContent,
-      selectedPlatforms[1].kidsContent,
-      selectedPlatforms[2]?.kidsContent
-    ),
-    createData(
-      "Trial",
-      selectedPlatforms[0].trial,
-      selectedPlatforms[1].trial,
-      selectedPlatforms[2]?.trial
-    ),
-  ];
 
   return (
     <TableContainer component={Paper} sx={{ maxHeight: "95vh" }}>
@@ -74,7 +77,7 @@ export default function TableSection() {
         <TableHead>
           <TableRow sx={{ borderBottom: "2px solid #000" }}>
             <TableCell></TableCell>
-            {selectedPlatforms.map((platform) => (
+            {selectedPlatforms?.map((platform) => (
               <TableCell key={platform.id}>
                 <Image
                   src={platform.imageUrl}
@@ -90,7 +93,7 @@ export default function TableSection() {
         <TableBody>
           <TableRow>
             <TableCell component="th" scope="row" sx={{}}></TableCell>
-            {selectedPlatforms.map((platform) => (
+            {selectedPlatforms?.map((platform) => (
               <TableCell component="th" scope="row" key={platform.id}>
                 <button
                   type="button"
@@ -108,7 +111,7 @@ export default function TableSection() {
               </TableCell>
             ))}
           </TableRow>
-          {rows.map((row) => (
+          {rows?.map((row) => (
             <TableRow
               key={row.plan}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -134,7 +137,7 @@ export default function TableSection() {
               >
                 {row.platform2}
               </TableCell>
-              {selectedPlatforms.length > 2 && (
+              {selectedPlatforms?.length > 2 && (
                 <TableCell component="th" scope="row">
                   {row.platform3}
                 </TableCell>
