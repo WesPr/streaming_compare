@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -15,12 +19,41 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.alice-carousel {
+  background-color: black;
+}
+
+.item {
+  margin: 1rem;
+  height: 12rem;
+  background-color: #18181c;
+  border-radius: 1rem;
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  object-fit: contain;
+}
+
+.compareImage {
+  object-fit: contain;
+}
+
+@layer components {
+  .tw-button {
+    background: linear-gradient(45deg, rgb(255, 152, 152), rgb(128, 84, 255));
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@layer components {
+  .tw-opacityContainer {
+    background: rgba(255, 255, 255, 0.1);
   }
 }

@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Platform {
+  id               Int     @id @default(autoincrement())
+  imageName        String  @db.VarChar(255)
+  platformName     String  @db.VarChar(255)
+  pricing          String  @db.VarChar(255)
+  mediaType        String  @db.VarChar(255)
+  supportedDevices String  @db.VarChar(255)
+  download         String  @db.VarChar(255)
+  quality          String  @db.VarChar(255)
+  customProfiles   String  @db.VarChar(255)
+  trial            String  @db.VarChar(255)
+  signUp           String? @db.VarChar(255)
+  kidsContent      String? @db.VarChar(255)
+}
