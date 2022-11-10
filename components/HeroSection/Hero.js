@@ -9,12 +9,16 @@ const Hero = () => {
   return (
     <div className={"flex flex-1 flex-col px-5 py-12"}>
       <h1
-        className={"text-white font-poppins text-6xl text-center pt-5 lg:p-0"}
+        className={
+          "text-white font-poppins lg:text-6xl text-xl text-center pt-5 lg:p-0"
+        }
       >
         Compare Netherlands
       </h1>
       <h1
-        className={"text-white font-poppins text-6xl text-center pt-5 lg:p-0"}
+        className={
+          "text-white font-poppins lg:text-6xl text-xl text-center pt-5 lg:p-0"
+        }
       >
         Streaming Platforms
       </h1>
