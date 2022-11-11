@@ -27,7 +27,7 @@ const Home = (props) => {
         <CardSection platforms={platforms} />
       </section>
       <p
-        className={"bg-[rgb(0,0,0)] text-white text-sm p-5"}
+        className={"bg-[rgb(0,0,0)] text-white text-sm p-5 cursor-pointer"}
         onClick={() => {
           router.push({
             pathname: "/privacy",
