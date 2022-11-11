@@ -67,7 +67,7 @@ const Home = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(cxt) {
   const platforms = await getPlatforms();
   return {
     props: { platforms: JSON.parse(JSON.stringify(platforms)) },
