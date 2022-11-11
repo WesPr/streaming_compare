@@ -85,8 +85,8 @@ export default function privacy() {
       <h2>Cookies and Web Beacons</h2>
 
       <p>
-        Like any other website, Compare Today uses 'cookies'. These cookies are
-        used to store information including visitors' preferences, and the pages
+        Like any other website, Compare Today uses cookies. These cookies are
+        used to store information including visitors preferences, and the pages
         on the website that the visitor accessed or visited. The information is
         used to optimize the users experience by customizing our web page
         content based on visitors browser type and/or other information.
