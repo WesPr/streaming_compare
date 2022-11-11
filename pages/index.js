@@ -9,9 +9,14 @@ const Home = (props) => {
   return (
     <div className="bg-[rgb(0,0,0)] h-screen">
       <Head>
-        <title>Create Next App</title>
+        <title>Streaming Compare</title>
         <meta name="description" content="Streaming Compare" />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013062630732036"
+          crossorigin="anonymous"
+        ></script>
       </Head>
       <section className={""}>
         <Hero />
