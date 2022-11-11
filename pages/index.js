@@ -3,9 +3,11 @@ import Head from "next/head";
 import CardSection from "../components/CardSection/CardSection";
 import Hero from "../components/HeroSection/Hero";
 import { getPlatforms } from "../server/platforms.js";
+import { useRouter } from "next/router";
 
 const Home = (props) => {
   const [platforms, setPlatforms] = useState(props.platforms);
+  const router = useRouter();
   return (
     <div className="bg-[rgb(0,0,0)] h-screen">
       <Head>
@@ -24,6 +26,16 @@ const Home = (props) => {
       <section className={" bg-[rgb(0,0,0)]"}>
         <CardSection platforms={platforms} />
       </section>
+      <p
+        className={"bg-[rgb(0,0,0)] text-white text-sm p-5"}
+        onClick={() => {
+          router.push({
+            pathname: "/privacy",
+          });
+        }}
+      >
+        Privacy policy
+      </p>
     </div>
   );
 };
